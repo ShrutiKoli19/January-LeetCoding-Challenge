@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+        
+        unordered_set<int> set;
+        
+        int judge = 0;
+        
+        for(int i=0; i<trust.size(); i++){
+            set.insert(trust[i][0]);
+        }
+        
+        for(int i = 1; i<=n; i++){
+            if(set.find(i)==set.end()){
+                judge = i;
+                break;
+            }
+        }
+        
+        int count = 0;
+        
+        for(int i=0; i<trust.size(); i++){
+            if(trust[i][1] == judge){
+                count+=1;
+            }
+        }
+        
+        if(count == n-1){
+            return judge;
+        }
+        
+        return -1;
+    }
+};
