@@ -1,0 +1,28 @@
+class Solution {
+public:
+    
+    ListNode* Lhead;
+    Solution(ListNode* head) {
+        Lhead = head;
+    }
+    
+    int getRandom() {
+        
+        int res = 1;
+        int len = 1;
+        
+        ListNode* x = Lhead;
+        
+        while( x != NULL){
+            
+            if(rand() % len == 0){
+                res = x->val;
+            }
+            
+            len++;
+            x = x->next;
+        }
+        
+        return res;
+    }
+};
