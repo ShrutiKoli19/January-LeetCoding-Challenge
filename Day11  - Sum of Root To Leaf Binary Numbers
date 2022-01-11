@@ -1,0 +1,22 @@
+class Solution {
+public:
+    
+    int sumRoottoLeaf(TreeNode* root, int sum){
+        
+        if(root==NULL){
+            return 0;
+        }
+        
+        sum = (2*sum) + root->val;
+        if(root->left == NULL && root->right == NULL){
+            return sum;
+        }
+        
+        return sumRoottoLeaf(root->left, sum) + sumRoottoLeaf(root->right, sum);
+    }
+    
+    int sumRootToLeaf(TreeNode* root) {
+        
+        return sumRoottoLeaf(root, 0);
+    }
+};
